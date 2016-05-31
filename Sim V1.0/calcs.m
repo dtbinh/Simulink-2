@@ -1,6 +1,6 @@
 Z = deg2rad(0);
-Y = deg2rad(-45);
-X = deg2rad(30);
+Y = deg2rad(0);
+X = deg2rad(-90);
 %syms X;
 %syms Y;
 %syms Z;
