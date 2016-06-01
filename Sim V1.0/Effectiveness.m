@@ -1,0 +1,9 @@
+Lx1 = [0 0 0; 0 0 -1; 0 1 0];
+Lx2 = [0 0 1; 0 0 0; -1 0 0];
+Lx3 = [0 0 0; 0 0 1; 0 -1 0];
+Lx4 = [0 0 -1; 0 0 0; 1 0 0];
+One = [1 0 0; 0 1 0; 0 0 1];
+B = [Lx1 Lx2 Lx3 Lx4; One One One One];
+Bp = B*B.';
+Bpi = inv(Bp);
+Bpseudo = B.'*Bpi;
