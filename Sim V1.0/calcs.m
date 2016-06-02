@@ -1,9 +1,9 @@
-Z = deg2rad(0);
+Z = deg2rad(-90);
 %Y = deg2rad(0);
 %X = deg2rad(-30);
 syms X;
 syms Y;
-%syms Z;
+syms Z;
 z = Z;
 y = Y;
 x = X;
