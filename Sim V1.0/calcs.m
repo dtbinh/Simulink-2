@@ -24,3 +24,10 @@ t = [0 0 T];
 %Tp = quatmultiply(Qbi,quatmultiply(T,Qb));
 %disp(Tp);
 disp((R)*(t).');
+
+%torque = angular X inertial*rotation
+%[0 -wz 0
+%[wz 0 0 
+%[0 0 0
+
+
