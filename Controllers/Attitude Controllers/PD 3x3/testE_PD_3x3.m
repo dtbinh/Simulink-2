@@ -1,4 +1,4 @@
-function [bestP1,bestP2,bestP3,pbest,gbest,bestG] = testE(bestP1,bestP2,bestP3,pbest,bestG,gbest,x,Qe,We,Ge)
+function [bestP1,bestP2,bestP3,pbest,gbest,bestG] = testE_PD_3x3(bestP1,bestP2,bestP3,pbest,bestG,gbest,x,Qe,We,Ge)
 %K1 K2 K3 Diagonal
 pbest(1,1:3)=(bestP1(1:3)>=Qe).*x(1,1:3)+(1-(bestP1(1:3)>Qe)).*pbest(1,1:3);
 bestP1(1:3)=(bestP1(1:3)>=Qe).*Qe + (1-(bestP1(1:3)>Qe)).*bestP1(1:3);
