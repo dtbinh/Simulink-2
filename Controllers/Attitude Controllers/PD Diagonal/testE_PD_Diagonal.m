@@ -1,4 +1,4 @@
-function [pbest,bestP,gbest,bestG] = testE(bestP,pbest,bestG,gbest,x,Qe,We,Ge)
+function [pbest,bestP,gbest,bestG] = testE_PD_Diagonal(bestP,pbest,bestG,gbest,x,Qe,We,Ge)
 if Qe(1)<bestP(1);
     bestP(1)=Qe(1);
     pbest(1)=x(1);

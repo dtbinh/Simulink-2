@@ -3,7 +3,7 @@
 %persistent x vn K1 K2 K3 a1 a2 a3 pbest gbest bestG bestP
 %First run through
 % x = [k0(1) k0(2) k0(3) a0(1) a0(2) a0(3)];
-x =  [2.7649    2.8837    1.7051    3.1709    4.2307    3.3348];
+x =  [2.7439    2.8826    1.7408    3.1718    4.2276    3.3682];
 vn = [0.1 0.1 0.1 0.1 0.1 0.1].';
 K1=[0 x(1) 0 0];
 K2=[0 0 x(2) 0];
@@ -36,7 +36,6 @@ for psi = 20:60:360
             try
                 [Out]=sim('PD_Diagonal','ReturnWorkspaceOutputs', 'on','SrcWorkspace','base'); 
                 i = i + 1;
-                disp(i);
                 pGe=pGe+Out.get('Ge');
                 pQe=pWe+Out.get('Qe');
                 pWe=pQe+Out.get('We');
@@ -70,7 +69,7 @@ bestG=Ge;
 disp(bestG);
 while(true)
     vn = vn + 1*(rand(6,1)).*(pbest-x).' + 2*(rand(6,1)).*(gbest-x).';
-    x = x + 0.1*vn.';
+    x = x + 1*vn.';
     K1=[0 x(1) 0 0];
     K2=[0 0 x(2) 0];
     K3=[0 0 0 x(3)];
@@ -120,5 +119,5 @@ while(true)
     Ge=pGe/i;
     disp(Ge);
     disp(x);
-    [pbest,bestP,gbest,bestG]=testE(bestP,pbest,bestG,gbest,x,Qe,We,Ge);
+    [pbest,bestP,gbest,bestG]=testE_PD_Diagonal(bestP,pbest,bestG,gbest,x,Qe,We,Ge);
 end
