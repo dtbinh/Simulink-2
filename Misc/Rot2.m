@@ -1,0 +1,16 @@
+V= [1 0 0].';
+phi = 0;
+theta = deg2rad(90);
+psi = 0;
+Rx = [1 0 0; 0 cos(phi) -sin(phi); 0 sin(phi) cos(phi)];
+Ry = [cos(theta) 0 sin(theta); 0 1 0; -sin(theta) 0 cos(theta)];
+Rz = [cos(psi) -sin(psi) 0; sin(psi) cos(psi) 0; 0 0 1];
+Rb = Rz*Ry*Rx;
+V2 = Rb*V;
+Qx = quatnormalize([cos(phi/2) sin(phi/2) 0 0]);
+Qy = quatnormalize([cos(theta/2) 0 sin(theta/2) 0]);
+Qz = quatnormalize([cos(psi/2) 0 0 sin(psi/2)]);
+Qb = quatmultiply(Qx,quatmultiply(Qy,Qz));
+Qbinv = quatmultiply(quatconj(Qz),quatmultiply(quatconj(Qy),quatconj(Qx)));
+Qv = [0 V.'];
+Qv2 = quatmultiply(Qb,quatmultiply(Qv,Qbinv));
